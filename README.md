@@ -1,11 +1,10 @@
 # STATS 401 Labs
 
-> **Created with [Claude Code](https://claude.com/product/claude-code).**
 > The project structure, multi-page Vite configuration, GitHub Actions
 > deployment workflow, and per-lab placeholder modules in this
 > repository were bootstrapped in collaboration with Claude Code (the
-> `claude` CLI). These serves as a starting template only — the lab implementations
-> are by myself.
+> `claude` CLI). **These serves as a starting template only — the lab implementations
+> are by myself.**
 
 STATS 401: Data Acquisition and Visualization — Lab 1–10 site, built
 with **Vite** + **D3.js** and deployed via **GitHub Pages**.
