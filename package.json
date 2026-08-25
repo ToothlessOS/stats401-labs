@@ -1,0 +1,18 @@
+{
+  "name": "stats401-labs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "STATS 401: Data Acquisition and Visualization — Lab 1–10 site (Vite + D3 + GitHub Pages).",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "d3": "^7.9.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
