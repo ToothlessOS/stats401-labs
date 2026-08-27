@@ -8,9 +8,44 @@
 </head>
 <body>
     <div id="nav"></div>
+    
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
 
-    <h1>Lab 2</h1>
-    <p>Lab 2 content will appear here.</p>
+    <h2>Lab 2: Multivariate Visualization with D3</h2>
+
+    <div id="chart"></div>
+    <div id="tooltip" class="tooltip"></div>
+
+    <p><strong>Design Justification</strong></p>
+    <p>
+        I choose to put population on the x axis, the development level on the axis and visualize
+        the temperature using colors and the region using shapes, for the following reasons:
+    </p>
+    
+    <ol>
+        <li>
+            I expect a correlation between larger polution and higher development level. Therefore,
+            I put the two on x axis and y axis respectively to clearly visualize this trend. 
+        </li>
+        <li>
+            After illustrating the different regions with different shapes, we can easily compare the
+            populations and development levels of different regions. For example, the southern cities
+            are concentrated on the buttom-left of the figure - suggesting that the region is relatively
+            underdeveloped with smaller population.
+        </li>
+        <li>
+            While representing different temperature with colors is a intuitive choice and people can 
+            take in that information at a glance.
+        </li>
+        <li>
+            The tooltip allow the users to view the detailed data for each city easily.
+        </li>
+    </ol>
+
+    <p>
+        Overall, I think this visualization design do a good job in showing the trends between the different
+        variables in the cities dataset. It is also very readable.
+    </p>
 
     <p><a href="/stats401-labs/">Back to home</a></p>
 
