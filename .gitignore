@@ -3,3 +3,5 @@ dist/
 .DS_Store
 .vscode/
 *.log
+
+lab4/training.1600000.processed.noemoticon.csv
