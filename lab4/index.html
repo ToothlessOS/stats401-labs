@@ -9,9 +9,42 @@
 <body>
     <div id="nav"></div>
 
-    <h1>Lab 4</h1>
-    <p>Lab 4 content will appear here.</p>
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
 
+    <h2>Lab 4 — Tweet Sentiment by Weekday</h2>
+    <p>Stacked bar chart of sentiment counts per weekday (n = 250 tweets/day).</p>
+
+    <div id="chart"></div>
+    <div id="tooltip" class="tooltip"></div>
+
+    <p><strong>About this Visualization</strong></p>
+    <p>
+        <strong>Dataset: </strong> <a href="https://www.kaggle.com/datasets/kazanova/sentiment140"> Sentiment140 from Kaggle </a>; I sampled 250 tweets from each
+        day of week, giving us a dataset of 1,750 entries.
+    </p>
+    <p>
+        <strong>Main cleaning decisions: </strong>
+        The dataset itself is in good shape, without duplicating and missing values. I did two steps of clearning: Firstly, I converted the `date` string
+        entries in the dataframe to standard `datetime`, which made them easier to process for downstream analysis. Secondly, I removed the user information, links
+        and additional whitespaces in the tweets before feeding them into Roberta for sentiment analysis.
+    </p>
+    <p>
+        <strong>Sentiment Analysis: </strong>
+        Each tweet's sentiment is based on its predicted label with the highest score. The raw data in available in `/lab4/analyzed_tweets.csv`
+    </p>
+    <p>
+        <strong>Visualization: </strong>
+        I used a stacked bar chart. The x-axis is seven days of the week and the y-axis counts the number of tweets with different sentiments, which are
+        represented with different colors. With this visualization, it is easy to see the distribution of sentiments for a given day and compare the trends
+        across the whole week. A tooltip is added so that the users can check the raw data (`/lab4/sentiment_by_weekdays.json`).
+    </p>
+    <p>
+        <strong>Findings: </strong>
+        It turned about Mondays are not that hated after all. Interestingly, the peak of negative emotion in tweets happened on Wednesdays and Thursday - this 
+        can be explained by the fact that stress of work starts to build up while weedend still feels far away on these days. Importantly, the sample size is relatively
+        small and there are many factors that are not accounted for in this dataset - so the visualization is mainly for amusement :)  
+    </p>
+    
     <p><a href="/stats401-labs/">Back to home</a></p>
 
     <script type="module" src="/src/labs/lab4.js"></script>
