@@ -26,6 +26,17 @@ li {
 
 #chart {
     margin-top: 30px;
+    display: flex;
+    align-items: flex-start;
+    overflow-x: auto;
+}
+
+#chart > svg {
+    flex-shrink: 0;
+}
+
+#chart .legend-svg {
+    margin-left: 16px;
 }
 
 /* Navigation bar (Lab 1–10 links). */
