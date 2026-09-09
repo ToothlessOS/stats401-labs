@@ -9,11 +9,100 @@
 <body>
     <div id="nav"></div>
 
-    <h1>Lab 5</h1>
-    <p>Lab 5 content will appear here.</p>
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
+    
+    <h2>Lab 5: Graph and Adjancency Matrix for Transportation Network</h2>
+
+    <h3>A - Node-link Vis of the Transportation Network</h3>
 
     <div id="chart"></div>
     <div id="tooltip" class="tooltip"></div>
+
+    <h3>B - Adjancency Matrix of the Transportation Network</h3>
+    
+    <div id="matrix"></div>
+
+    <h3>C - Design Justification</h3>
+
+    <p><strong>Node-link Encoding</strong></p>
+    <ol>
+        <li>
+            District - Node color.
+        </li>
+        <li>
+            Daily passengers - Node size. This is an intuitive representation, as a larger station means more passengers.  
+        </li>
+        <li>
+            Station type - Node texture. Solid for terminals (i.e. dead-end), hollowed for locals 
+            (following the convention of Shanghai Metro) and cross for transfers (follwing the conventionof Shenzhen Metro)
+        </li>
+        <li>
+            Min Travel Time - Link width. A wider links gives the intuition of "getting there more easily", corresponding to
+            shorter traveling time.
+        </li>
+        <li>
+            Route Type - Link color. I choose a different color scheme from the nodes, so that the users won't get lost.
+        </li>
+    </ol>
+
+    <p><strong>Node-link Interaction</strong></p>
+    <ol>
+        <li>
+            The nodes can be dragged, allow users to see the layout of the network more easily.
+        </li>
+        <li>
+            When hovering above any node or link, a tooltip gives specific information of the station or route.
+            The neightbouring routes and stations also get highlighted. As the current visualization is quite
+            complex, this help the user to focus on individual stations / routes.
+        </li>
+    </ol>
+
+    <p><strong>Adj. MAT Encoding</strong></p>
+    <ol>
+        <li>
+            Row / Column - Stations.
+        </li>
+        <li>
+            Filled cells - Direct connection.  
+        </li>
+        <li>
+            Cell color - travel time
+        </li>
+    </ol>
+    <p>
+        As this is a very large adjancency matrix, trying to pack too many variables into the visualization will make it 
+        hard to read. Therefore, I only preserved direction connections and travel times, which are the most important
+        variables for travellers. The district / type of the two connecting stations and the route type are presented via the tooltip.
+    </p>
+
+    <p><strong>Q&A</strong></p>
+    <ol>
+        <li>
+            Which stations appear central in the network? - Station 38; From the Node-Link graph, we can see it is a large
+            station (node size) with short travel times (link width) to three other large stations in different districts (node color)
+            . This makes it important in the network.
+        </li>
+        <li>
+            Which districts are strongly connected to one another? - It's hard to name a specific pair of districts. From the node-link
+            graph, we can see that many nodes with different colors (from different district) are interconnected. There are strong connections
+            between all of the districts. 
+        </li>
+        <li>
+            Where are transfer or terminal stations located in the topology? - All transfer stations are located in the connected part
+            of the node-link graph.
+        </li>
+        <li>
+            Which stations have high passenger volume? - Station 48, 49, 50; Indicated by the node size in the node-link graph.
+        </li>
+        <li>
+            Where are the longest direct travel-time connections? - Station 7 and Station 31; This is given by the darkest orange
+            square on the adjancency matrix.
+        </li>
+        <li>
+            Are particular route types concentrated in particular parts of the network? - From the node-link graph, I cannot tell this from the visualization - the
+            links of different colors (route types) are mixed together and I cannot find a concentrated pattern.
+        </li>
+    </ol>
 
     <p><a href="/stats401-labs/">Back to home</a></p>
 
