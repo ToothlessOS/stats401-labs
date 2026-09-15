@@ -9,8 +9,38 @@
 <body>
     <div id="nav"></div>
 
-    <h1>Lab 6</h1>
-    <p>Lab 6 content will appear here.</p>
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
+    
+    <h2>Lab 6: GDP Hierarchy with Two Treemaps</h2>
+
+    <h3>Legend</h3>
+    <div id="legend"></div>
+    
+    <h3>Treemap 1 with squarify segmentation method</h3>
+    <div id="treemap1"></div>
+    <h3>Treemap 2 with binary segmentation method</h3>
+    <div id="treemap2"></div>
+    <div id="tooltip" class="tooltip"></div>
+
+    <h3>About the design</h3>
+
+    <p><strong>Visual channels</strong></p>
+
+    <p>
+        I use high constrast colors for different continents and easy to understand glyphs to indicate the growth trend of
+        GDP. The sizes of the cells intuitively represent each country's GDP and enables comparison. To avoid clustering, the country
+        label and/or the growth glyphs are hidden for cells that are too small. A prompt is included in the legend for this,
+        asking the user to use the hovering tooltip for hidden information.  
+    </p>
+
+    <p><strong>Comparison between squarify and binary - </strong></p>
+
+    <p>
+        Both methods achieve relatively good readability of the hierarchy. "Squarify" pushes the cells to be more squared,
+        while "binary" pushes the cells to follow a balanced binary tree. In this case, both successfully avoid cells that
+        are too thin and hurts readability of the hierarchy. They also make each levels of hierarchy distinctive by adding
+        the approproiate white spaces.
+    </p>
 
     <p><a href="/stats401-labs/">Back to home</a></p>
 
