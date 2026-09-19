@@ -9,8 +9,47 @@
 <body>
     <div id="nav"></div>
 
-    <h1>Lab 7</h1>
-    <p>Lab 7 content will appear here.</p>
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
+    
+    <h2>Lab 7: Animated Temporal Commercial Network</h2>
+
+    <div id="legend"></div>
+
+    <div id="controls"></div>
+    
+    <div id="chart"></div>
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <h3>Temporal Network Questions</h3>
+
+    <ol>
+        <li>
+            How does overall network connectivity change across the 60 days? - The network connectivity gradually <strong>increases</strong> across the 60 days.
+            I check this by the count of active transactions for each day. The baseline transcation counts for the later stages are 
+            higher, around 5 or 6 (compared by many days with only 3 transactions in the beginning) with many days having 10 active transactions.
+        </li>
+        <li>
+            Which companies become more central or commercially active over time? - By checking streak highlights (i.e. companies that have traded)
+            more than 5 days in a row, we can idenfity companies that are more central / commercially active. One goold example is <strong>Ion Systems</strong>
+            - which is not highlighted in the first 40 days, but then gets highlighted from day 44 to the end.
+        </li>
+        <li>
+            Are there periods when the network consists of relatively separate clusters? - To answer this question, we can check the shaded hulls
+            that plot the connected components / clusters in the network. However, I find that network contains a few seperated clusters for most
+            of the time, and it never comes in just 1 connected component.
+        </li>
+        <li>
+            Which commercial relationships appear, disappear, or become stronger over time? - To answer this question, we can check the color encoding of edges over
+            the time. However, I observe that all colors appear through the 60 days, and it can be hard to decide which ones become stronger
+            without quantative analysis.
+        </li>
+        <li>
+            Does the network become more or less cross-regional over time? - To answer the question, we can check
+            the number of edges between the dashed hulls that encompass companies from each region. The density of these edges grow over time,
+            indicating a network that becomes more cross-regional.
+        </li>
+    </ol>
 
     <p><a href="/stats401-labs/">Back to home</a></p>
 

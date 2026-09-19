@@ -73,6 +73,64 @@ li {
     font-size: 14px;
 }
 
+/* Lab 7 playback controls. #controls is declared only by lab7/index.html, so
+ * these rules cannot reach any other lab's page. */
+#controls {
+    margin: 6px 0 0;
+    /* Matches the legend and network SVG width (lab7.js WIDTH / LEGEND_W), so
+     * the three blocks share one right edge instead of the controls running
+     * wider than the chart below them. */
+    max-width: 920px;
+}
+
+#controls .controls-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+}
+
+#controls button {
+    padding: 6px 14px;
+    font-size: 13px;
+    background: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#controls button:hover {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+#controls select {
+    padding: 5px 8px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#controls input[type="range"] {
+    flex: 1 1 320px;
+    min-width: 220px;
+    max-width: 520px;
+}
+
+#controls .day-readout {
+    font-size: 13px;
+    font-weight: bold;
+    min-width: 155px;
+}
+
+#controls .summary {
+    font-size: 13px;
+    color: #52514e;
+}
+
 #data-table {
     width: 100%;
     border-collapse: collapse;
