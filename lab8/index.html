@@ -9,8 +9,234 @@
 <body>
     <div id="nav"></div>
 
-    <h1>Lab 8</h1>
-    <p>Lab 8 content will appear here.</p>
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
+
+    <h3>1. Bulletin / Corpus Description</h3>
+
+    <p>
+        The corpus is the <em>Bulletin of Duke Kunshan University Undergraduate
+        Instruction</em>, <strong>2021–22</strong> edition
+        (<code>V2021-22_DKU_UG_Bulletin.pdf</code>), obtained from the official
+        DKU source at
+        <a href="https://dku-web-admissions.s3.cn-north-1.amazonaws.com.cn/dkumain/files/V2021-22_DKU_UG_Bulletin.pdf">dku-web-admissions.s3.cn-north-1.amazonaws.com.cn</a>,
+        accessed <strong>23 September 2026</strong>.
+    </p>
+
+    <h3>2. Corpus Overview</h3>
+
+    <p>
+        Two corpus-level summaries. Both use the same twelve largest sections in
+        the same order, so the two panels can be read against each other. The
+        section names are long enough (the longest runs to 88 characters) that
+        the bars are horizontal — rotated x-axis labels would be unreadable.
+        <strong>Clicking a bar applies that section as a filter</strong> on the
+        map in section 3, which is the practical way to reach any of the 79
+        sections.
+    </p>
+
+    <div id="corpus-stats"></div>
+    <div id="overview"></div>
+
+    <p>
+        The third summary is the topic table: the eleven semantic topics
+        produced by the clustering in section 3.1, with the TF-IDF terms that
+        characterise each one.
+    </p>
+
+    <table id="data-table">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <p>
+        A fourth summary, which the findings in section 5 lean on: how mixed
+        each section's topics are. The measure is the Shannon entropy of the
+        section's topic distribution, where 0 means every passage lands in one
+        topic. It is only meaningful for sections with enough passages to have a
+        distribution at all, so the table is cut at ten passages — below that, a
+        score of 0 says "too small to tell", not "focused".
+    </p>
+
+    <table id="diversity-table">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <h3>3. Semantic Embedding Map</h3>
+
+    <h4>3.1 Semantic analysis: embeddings, UMAP, clustering, and the choice of <em>k</em></h4>
+
+    <p>
+        <strong>Embeddings.</strong> Each passage's cleaned text was encoded with
+        <code>all-MiniLM-L6-v2</code> into a 384-dimensional vector
+        (<code>normalize_embeddings=True</code>, so every vector has unit
+        length and Euclidean distance is a monotone function of cosine
+        distance).
+    </p>
+
+    <p>
+        <strong>Projection.</strong> UMAP reduces those 384 dimensions to two for
+        display only: <code>n_components=2, n_neighbors=15, min_dist=0.15,
+        metric="cosine", random_state=401</code>. The two axes carry no meaning
+        of their own — they are not two interpretable semantic variables. The only claim the
+        map makes is that <em>nearby passages tend to be semantically
+        similar</em>.
+    </p>
+
+    <p>
+        <strong>Clustering.</strong> KMeans with <code>k = 11</code>
+        (<code>random_state=401, n_init="auto"</code>) was fitted on the
+        <strong>original 384-dimensional vectors</strong>.
+    </p>
+
+    <p>
+        <strong>How <em>k</em> was chosen.</strong>
+    </p>
+
+    <!-- Relative, not /stats401-labs/lab8/elbow.png: Vite rewrites asset
+         references it can resolve against the source tree and prepends `base`
+         itself, so an already-prefixed absolute path gets the base twice and
+         404s under the dev server. -->
+    <img src="./elbow.png" width="920"
+         alt="Top panel: inertia against number of clusters, falling monotonically with a chord-rule elbow marked at k = 6. Bottom panel: cosine silhouette against number of clusters, peaking at k = 11.">
+
+    <div id="k-table"></div>
+
+    <p>
+        <strong>They measure different things.</strong> Inertia only asks how
+        compact each cluster is; it keeps shrinking as clusters multiply, so its
+        elbow nominates an arbitrary <em>k</em>=6 on a curve with no sharp bend.
+        Cosine silhouette asks how well <em>separated</em> the clusters are —
+        which is what a map of topics actually needs — and it peaks at
+        <em>k</em> = 11 (0.1294), ahead of its neighbours at <em>k</em>=10
+        (0.1208) and <em>k</em>=12 (0.1164).
+    </p>
+
+    <p>
+        So <strong><em>k</em> = 11</strong> is kept for that better cluster separation,
+        making the clusters more intepretable.
+    </p>
+
+    <h4>3.2 The map</h4>
+
+    <div id="legend"></div>
+    <div id="controls"></div>
+    <div id="chart"></div>
+
+    <p class="caption">
+        The axes are not labelled and are not meaningful — only proximity is.
+        Use the search box and the filters to reduce the map to a subset, click
+        any point for its full detail, or select a chapter to shade everything
+        outside it.
+    </p>
+
+    <div id="detail-panel"></div>
+    <div id="neighbors"></div>
+    <div id="tooltip" class="tooltip"></div>
+
+    <h3>4. Topic × Bulletin Section Matrix</h3>
+
+    <ul id="matrix-topic-key"></ul>
+    <div id="matrix"></div>
+
+    <h3>5. Semantic Findings</h3>
+
+    <p>
+        Each answer below names the interaction used to reach it. All six of the
+        assignment's questions are answered.
+    </p>
+
+    <ol>
+        <li>
+            <strong>What are the major semantic topics?</strong> Eleven, listed
+            in the table in section 2. The largest are <em>History, Religion
+            &amp; Society</em> (182 passages), <em>Course Prerequisites</em>
+            (160), and <em>Computer Science, Math &amp; Data Science</em> (147);
+            the smallest is <em>Media, Film &amp; Visual Arts</em> (89). Read
+            from the map colours on the map (section 3.2).
+        </li>
+        <li>
+            <strong>Which topics appear across multiple formal sections?</strong>
+            Check the Topic x Bulletin Section Matrix:
+            The most prominant topics that appear in multiple categories are (7) Institutional
+            & Transfer credit and (9) Academic Standing, Leave & Withdraw
+            - this make sense as these regulations are quite important and tied 
+            to many aspects of college life. Another topic is (5) Interdisciplinary Seminars & Learning
+            goals, an important part of liberal arts colleges like DKU.
+        </li>
+        <li>
+            <strong>Which sections contain the most semantically diverse
+            content?</strong> Measured as the Shannon entropy of each row's
+            topic distribution, restricted to sections with at least ten
+            passages. <code>Course Descriptions</code> (2.11) and
+            <code>Majors (listed in alphabetical order)</code> (1.94) are far
+            the most mixed — unsurprising, since both are catalogues spanning
+            every discipline.
+        </li>
+        <li>
+            <strong>Which passages from different sections are semantically
+            similar?</strong> This question can be answered by checking the 
+            semantic neighbours of passages. For example, passage p0146 from "Course Repeat"
+            on CR/NC policies have semantic neighbours from "Grading and Grade Requirements",
+            "Transfer of Work Taken Elsewhere" and "Progress toward Degree".
+        </li>
+        <li>
+            <strong>Which passages appear unusual relative to their formal
+            section?</strong> I try to find these passages by clicking on the brighter cells
+            in the matrix, which may indicates passages with very different semantics
+            from other passages in the same formal section. I failed to find one with a few 
+            tries - the bulletin is quite organized. However, I do find some outliers in KMeans
+            of semantics. For instance, it puts the description for a music course (p1112) into
+            the semantic cluster of Institutional & Transfer Credit.
+        </li>
+        <li>
+            <strong>Does <code>credit</code> live in one semantic region or
+            several?</strong> Search returns
+            <strong>153 passages across 10 of the 11 topics</strong> and 30
+            sections, and the readout shows it
+            split mainly between <em>AP &amp; Electives</em> (64),
+            <em>Transfer Credit</em> (35) and <em>Standing &amp; Leave</em> (26).
+        </li>
+    </ol>
+
+    <h3>6. Design Description</h3>
+
+    <p>
+        Passages were encoded with <code>all-MiniLM-L6-v2</code> into 384-d unit
+        vectors, projected to two dimensions with UMAP
+        (<code>n_neighbors=15, min_dist=0.15, cosine, random_state=401</code>)
+        for placement only, and clustered in the <em>original</em> 384-d space
+        with KMeans at <em>k</em>=11 — chosen on the cosine silhouette peak
+        rather than the inertia elbow, which is too flat on this corpus to be
+        decisive. Topics were labelled by reading each cluster's most
+        characteristic TF-IDF bigrams and unigrams against its representative
+        passages; the terms ship in the topic table so the labels can be checked
+        rather than taken on trust.
+    </p>
+
+    <p>
+        The map encodes position as embedding, colour as topic (eleven
+        colour-coded, numbered legend entries), and size as passage length.
+        Formal section is carried by the matrix and the filters instead of by a
+        fourth mark on the point, since Task 11's suggested
+        <code>stroke → section</code> channel is consumed here by the highlight
+        system. The more consequential decision was to give dimming two
+        strengths rather than one: filters (section, topic) drop points to 5%
+        while search and chapter selection drop them to 15%, and selection is
+        shown with rings rather than opacity at all. Because a chapter highlight
+        is a fill change and a neighbour highlight is a ring, selecting a
+        chapter while a passage is selected leaves both legible — and the
+        neighbour that glows outside the highlighted chapter is precisely the
+        cross-section relationship the lab asks about. Clicking a matrix cell
+        spotlights its passages on the map without disturbing the filters, and
+        selecting a point outlines its own cell, so the grid and the map always
+        agree on what is being pointed at.
+        The coordinated interaction helps to link the two visualizations together 
+        and allow users to explore the relationship between different variables.
+        It's not quite practical to encode the formal section into the semantic embedding
+        map without overcrowding the visuals. But with the coordinated interaction, relationships
+        with formal sections can still be easily identified and explored.
+    </p>
 
     <p><a href="/stats401-labs/">Back to home</a></p>
 

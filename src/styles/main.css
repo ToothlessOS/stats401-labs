@@ -71,6 +71,10 @@ li {
     pointer-events: none;
     opacity: 0;
     font-size: 14px;
+    /* Some bulletin section names run to 88 characters; without a cap the
+     * tooltip would stretch most of the way across the page. */
+    max-width: 320px;
+    line-height: 1.45;
 }
 
 /* Lab 7 playback controls. #controls is declared only by lab7/index.html, so
@@ -131,19 +135,295 @@ li {
     color: #52514e;
 }
 
-#data-table {
+#data-table,
+#diversity-table {
     width: 100%;
     border-collapse: collapse;
 }
 
 #data-table th,
-#data-table td {
+#data-table td,
+#diversity-table th,
+#diversity-table td {
     border: 1px solid #ccc;
     padding: 8px 10px;
     text-align: left;
 }
 
-#data-table thead th {
+#data-table thead th,
+#diversity-table thead th {
     background: #f5f5f5;
     border-bottom: 2px solid #999;
+}
+
+#diversity-table {
+    width: auto;
+    min-width: 560px;
+    font-size: 13px;
+}
+
+#diversity-table caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 13px;
+    color: #52514e;
+    padding-bottom: 6px;
+}
+
+#diversity-table th:nth-child(n + 2),
+#diversity-table td:nth-child(n + 2) {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ---- Lab 8 ----------------------------------------------------------------
+ * Rules are scoped to ids declared only by lab8/index.html, so they cannot
+ * reach another lab's page. */
+
+#corpus-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 26px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: #52514e;
+}
+
+#corpus-stats strong {
+    color: #0b0b0b;
+}
+
+#overview svg {
+    display: block;
+}
+
+#overview .caption,
+.caption {
+    font-size: 13px;
+    color: #52514e;
+    line-height: 1.55;
+}
+
+#data-table td.terms {
+    max-width: 340px;
+    font-size: 13px;
+    color: #52514e;
+}
+
+/* A colour chip sitting beside its own text label.  Topic identity must never
+ * rest on hue alone - the number and name travel with every swatch. */
+.swatch {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: -1px;
+}
+
+#legend {
+    margin: 16px 0;
+}
+
+.legend-block {
+    margin-bottom: 12px;
+}
+
+.legend-title {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.legend-topics {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 3;
+    column-gap: 24px;
+    font-size: 13px;
+}
+
+.legend-topics li {
+    margin-bottom: 3px;
+    break-inside: avoid;
+}
+
+.legend-num {
+    display: inline-block;
+    min-width: 14px;
+    color: #52514e;
+    font-variant-numeric: tabular-nums;
+}
+
+.legend-n {
+    color: #898781;
+}
+
+/* The search box needs its own rule: the existing #controls block styles only
+ * buttons, selects and range inputs. */
+#controls input[type="text"] {
+    padding: 5px 8px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1 1 240px;
+    max-width: 340px;
+}
+
+#controls label {
+    font-size: 13px;
+    color: #52514e;
+}
+
+#detail-panel {
+    margin-top: 16px;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fafafa;
+    font-size: 14px;
+    /* One passage runs to 506 words; without a cap the panel alone would be
+     * taller than the map above it. */
+    max-height: 340px;
+    overflow-y: auto;
+}
+
+#detail-panel h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+}
+
+#detail-panel .detail-meta {
+    color: #52514e;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+#detail-panel .placeholder {
+    color: #898781;
+    margin: 0;
+}
+
+#neighbors {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+#neighbors ol {
+    margin: 6px 0 0 22px;
+    padding: 0;
+}
+
+#neighbors li {
+    margin-bottom: 9px;
+    cursor: pointer;
+}
+
+#neighbors li:hover .nn-section {
+    text-decoration: underline;
+}
+
+#neighbors .nn-section {
+    color: #52514e;
+}
+
+#neighbors .nn-sim {
+    color: #898781;
+    font-variant-numeric: tabular-nums;
+}
+
+#neighbors .nn-text {
+    color: #52514e;
+    margin-top: 2px;
+}
+
+#neighbors .caption {
+    margin-bottom: 0;
+}
+
+#k-table {
+    width: auto;
+    min-width: 560px;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+}
+
+#k-table caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 13px;
+    color: #52514e;
+    padding-bottom: 6px;
+}
+
+#k-table th,
+#k-table td {
+    border: 1px solid #ccc;
+    padding: 4px 10px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+#k-table thead th {
+    background: #f5f5f5;
+}
+
+#k-table tbody tr.k-chosen {
+    background: #eef4fb;
+    font-weight: bold;
+}
+
+#matrix {
+    margin-top: 12px;
+    overflow-x: auto;
+}
+
+#matrix svg {
+    display: block;
+}
+
+#matrix .controls-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+    max-width: 920px;
+}
+
+#matrix .controls-row button {
+    padding: 6px 14px;
+    font-size: 13px;
+    background: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#matrix .controls-row button:hover {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+#matrix .controls-row .summary {
+    font-size: 13px;
+    color: #52514e;
+}
+
+#matrix-topic-key {
+    columns: 2;
+    column-gap: 30px;
+    list-style: none;
+    margin: 12px 0 4px;
+    padding: 0;
+    font-size: 13px;
+}
+
+#matrix-topic-key li {
+    margin-bottom: 3px;
+    break-inside: avoid;
 }

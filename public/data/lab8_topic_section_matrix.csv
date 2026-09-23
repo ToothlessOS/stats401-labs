@@ -1,0 +1,149 @@
+section,cluster,cluster_name,cluster_short,count,n_section,prop_of_section,prop_of_topic
+Course Descriptions,0,"Biology, Chemistry & Environmental Science",Bio / Chem / Env,51,798,0.0639,0.5426
+Course Descriptions,1,"Advanced Placement, Credit & Electives",AP & Electives,32,798,0.0401,0.2991
+Course Descriptions,2,China & Asia (DKU Background Info; China & Asia stuides),China & Asia,86,798,0.1078,0.735
+Course Descriptions,3,Course Prerequisites,Prerequisites,160,798,0.2005,1.0
+Course Descriptions,4,"Media, Film & Visual Arts",Media & Film,68,798,0.0852,0.764
+Course Descriptions,5,Interdisciplinary Seminars & Learning Goals,Seminars,84,798,0.1053,0.6131
+Course Descriptions,6,"History, Religion & Society",History & Religion,147,798,0.1842,0.8077
+Course Descriptions,7,Institutional & Transfer Credit,Transfer Credit,3,798,0.0038,0.0273
+Course Descriptions,8,Public Policy & Economics,Policy & Economics,67,798,0.084,0.5154
+Course Descriptions,10,"Computer Science, Math & Data Science",CS / Math / Data,100,798,0.1253,0.6803
+Majors (listed in alphabetical order),0,"Biology, Chemistry & Environmental Science",Bio / Chem / Env,43,255,0.1686,0.4574
+Majors (listed in alphabetical order),1,"Advanced Placement, Credit & Electives",AP & Electives,20,255,0.0784,0.1869
+Majors (listed in alphabetical order),2,China & Asia (DKU Background Info; China & Asia stuides),China & Asia,25,255,0.098,0.2137
+Majors (listed in alphabetical order),4,"Media, Film & Visual Arts",Media & Film,21,255,0.0824,0.236
+Majors (listed in alphabetical order),5,Interdisciplinary Seminars & Learning Goals,Seminars,6,255,0.0235,0.0438
+Majors (listed in alphabetical order),6,"History, Religion & Society",History & Religion,33,255,0.1294,0.1813
+Majors (listed in alphabetical order),8,Public Policy & Economics,Policy & Economics,62,255,0.2431,0.4769
+Majors (listed in alphabetical order),10,"Computer Science, Math & Data Science",CS / Math / Data,45,255,0.1765,0.3061
+Degree Requirements,1,"Advanced Placement, Credit & Electives",AP & Electives,12,33,0.3636,0.1121
+Degree Requirements,5,Interdisciplinary Seminars & Learning Goals,Seminars,10,33,0.303,0.073
+Degree Requirements,7,Institutional & Transfer Credit,Transfer Credit,11,33,0.3333,0.1
+Grading and Grade Requirements,1,"Advanced Placement, Credit & Electives",AP & Electives,5,18,0.2778,0.0467
+Grading and Grade Requirements,7,Institutional & Transfer Credit,Transfer Credit,3,18,0.1667,0.0273
+Grading and Grade Requirements,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,10,18,0.5556,0.1053
+Office of Global Education and Study Away,1,"Advanced Placement, Credit & Electives",AP & Electives,3,15,0.2,0.028
+Office of Global Education and Study Away,7,Institutional & Transfer Credit,Transfer Credit,10,15,0.6667,0.0909
+Office of Global Education and Study Away,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,2,15,0.1333,0.0211
+Changes in Status,1,"Advanced Placement, Credit & Electives",AP & Electives,1,12,0.0833,0.0093
+Changes in Status,7,Institutional & Transfer Credit,Transfer Credit,3,12,0.25,0.0273
+Changes in Status,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,8,12,0.6667,0.0842
+Entrance Credit and Placement,1,"Advanced Placement, Credit & Electives",AP & Electives,3,12,0.25,0.028
+Entrance Credit and Placement,7,Institutional & Transfer Credit,Transfer Credit,9,12,0.75,0.0818
+(no section),5,Interdisciplinary Seminars & Learning Goals,Seminars,2,11,0.1818,0.0146
+(no section),6,"History, Religion & Society",History & Religion,1,11,0.0909,0.0055
+(no section),7,Institutional & Transfer Credit,Transfer Credit,2,11,0.1818,0.0182
+(no section),8,Public Policy & Economics,Policy & Economics,1,11,0.0909,0.0077
+(no section),9,"Academic Standing, Leave & Withdrawal",Standing & Leave,4,11,0.3636,0.0421
+(no section),10,"Computer Science, Math & Data Science",CS / Math / Data,1,11,0.0909,0.0068
+Refund,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,11,11,1.0,0.1158
+Undergraduate Course Load,1,"Advanced Placement, Credit & Electives",AP & Electives,1,11,0.0909,0.0093
+Undergraduate Course Load,7,Institutional & Transfer Credit,Transfer Credit,1,11,0.0909,0.0091
+Undergraduate Course Load,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,9,11,0.8182,0.0947
+Requirements for All Majors,1,"Advanced Placement, Credit & Electives",AP & Electives,6,10,0.6,0.0561
+Requirements for All Majors,2,China & Asia (DKU Background Info; China & Asia stuides),China & Asia,1,10,0.1,0.0085
+Requirements for All Majors,5,Interdisciplinary Seminars & Learning Goals,Seminars,3,10,0.3,0.0219
+"Academic Warning, Probation, and Suspension for Students in the Classes of 2022-2024",9,"Academic Standing, Leave & Withdrawal",Standing & Leave,9,9,1.0,0.0947
+"Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",1,"Advanced Placement, Credit & Electives",AP & Electives,1,7,0.1429,0.0093
+"Academic Warning, Probation, and Suspension for Students in the Class of 2025 and Beyond",9,"Academic Standing, Leave & Withdrawal",Standing & Leave,6,7,0.8571,0.0632
+Partners,1,"Advanced Placement, Credit & Electives",AP & Electives,1,6,0.1667,0.0093
+Partners,2,China & Asia (DKU Background Info; China & Asia stuides),China & Asia,2,6,0.3333,0.0171
+Partners,7,Institutional & Transfer Credit,Transfer Credit,3,6,0.5,0.0273
+Registration,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,6,0.1667,0.0073
+Registration,7,Institutional & Transfer Credit,Transfer Credit,1,6,0.1667,0.0091
+Registration,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,4,6,0.6667,0.0421
+Transfer of Work Taken Elsewhere,7,Institutional & Transfer Credit,Transfer Credit,6,6,1.0,0.0545
+Academic Integrity,7,Institutional & Transfer Credit,Transfer Credit,2,5,0.4,0.0182
+Academic Integrity,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,2,5,0.4,0.0211
+Academic Integrity,10,"Computer Science, Math & Data Science",CS / Math / Data,1,5,0.2,0.0068
+Athletics & University Sports,5,Interdisciplinary Seminars & Learning Goals,Seminars,4,5,0.8,0.0292
+Athletics & University Sports,7,Institutional & Transfer Credit,Transfer Credit,1,5,0.2,0.0091
+Career Services,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,5,0.2,0.0073
+Career Services,7,Institutional & Transfer Credit,Transfer Credit,4,5,0.8,0.0364
+Course Repeat,1,"Advanced Placement, Credit & Electives",AP & Electives,1,5,0.2,0.0093
+Course Repeat,7,Institutional & Transfer Credit,Transfer Credit,1,5,0.2,0.0091
+Course Repeat,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,3,5,0.6,0.0316
+Estimated Expenses,2,China & Asia (DKU Background Info; China & Asia stuides),China & Asia,1,5,0.2,0.0085
+Estimated Expenses,7,Institutional & Transfer Credit,Transfer Credit,2,5,0.4,0.0182
+Estimated Expenses,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,2,5,0.4,0.0211
+Grade Review Procedure,7,Institutional & Transfer Credit,Transfer Credit,1,5,0.2,0.0091
+Grade Review Procedure,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,4,5,0.8,0.0421
+Key Components,1,"Advanced Placement, Credit & Electives",AP & Electives,2,5,0.4,0.0187
+Key Components,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,5,0.2,0.0073
+Key Components,7,Institutional & Transfer Credit,Transfer Credit,2,5,0.4,0.0182
+Procedure for Resolution of Students' Academic Concerns,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,5,0.2,0.0073
+Procedure for Resolution of Students' Academic Concerns,7,Institutional & Transfer Credit,Transfer Credit,1,5,0.2,0.0091
+Procedure for Resolution of Students' Academic Concerns,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,3,5,0.6,0.0316
+Who We Are,7,Institutional & Transfer Credit,Transfer Credit,5,5,1.0,0.0455
+Academic Advising,5,Interdisciplinary Seminars & Learning Goals,Seminars,3,4,0.75,0.0219
+Academic Advising,7,Institutional & Transfer Credit,Transfer Credit,1,4,0.25,0.0091
+Academic Recognition and Honors,1,"Advanced Placement, Credit & Electives",AP & Electives,3,4,0.75,0.028
+Academic Recognition and Honors,7,Institutional & Transfer Credit,Transfer Credit,1,4,0.25,0.0091
+Application Requirements,1,"Advanced Placement, Credit & Electives",AP & Electives,4,4,1.0,0.0374
+Education Records,7,Institutional & Transfer Credit,Transfer Credit,3,4,0.75,0.0273
+Education Records,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,4,0.25,0.0105
+Eligibility for Courses,1,"Advanced Placement, Credit & Electives",AP & Electives,3,4,0.75,0.028
+Eligibility for Courses,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,4,0.25,0.0105
+Overview,5,Interdisciplinary Seminars & Learning Goals,Seminars,2,4,0.5,0.0146
+Overview,7,Institutional & Transfer Credit,Transfer Credit,2,4,0.5,0.0182
+Scholarships and Financial Aid,1,"Advanced Placement, Credit & Electives",AP & Electives,1,4,0.25,0.0093
+Scholarships and Financial Aid,7,Institutional & Transfer Credit,Transfer Credit,3,4,0.75,0.0273
+Academic Resource Center,5,Interdisciplinary Seminars & Learning Goals,Seminars,3,3,1.0,0.0219
+Accommodations,1,"Advanced Placement, Credit & Electives",AP & Electives,1,3,0.3333,0.0093
+Accommodations,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,3,0.3333,0.0073
+Accommodations,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,3,0.3333,0.0105
+Application Timelines,1,"Advanced Placement, Credit & Electives",AP & Electives,2,3,0.6667,0.0187
+Application Timelines,7,Institutional & Transfer Credit,Transfer Credit,1,3,0.3333,0.0091
+Class Attendance and Missed Work,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,3,3,1.0,0.0316
+Final Examinations,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,3,3,1.0,0.0316
+Progress toward Degree,7,Institutional & Transfer Credit,Transfer Credit,1,3,0.3333,0.0091
+Progress toward Degree,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,2,3,0.6667,0.0211
+Animating Principles,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,2,0.5,0.0073
+Animating Principles,7,Institutional & Transfer Credit,Transfer Credit,1,2,0.5,0.0091
+Blue Oasis Student Center,5,Interdisciplinary Seminars & Learning Goals,Seminars,2,2,1.0,0.0146
+Campus Programs,7,Institutional & Transfer Credit,Transfer Credit,2,2,1.0,0.0182
+Chinese Student Services and Student Mobility,2,China & Asia (DKU Background Info; China & Asia stuides),China & Asia,1,2,0.5,0.0085
+Chinese Student Services and Student Mobility,7,Institutional & Transfer Credit,Transfer Credit,1,2,0.5,0.0091
+Declaration of Major,7,Institutional & Transfer Credit,Transfer Credit,2,2,1.0,0.0182
+Exclusion of Disruptive Students from a Course,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,2,0.5,0.0073
+Exclusion of Disruptive Students from a Course,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,2,0.5,0.0105
+Independent Studies,5,Interdisciplinary Seminars & Learning Goals,Seminars,2,2,1.0,0.0146
+International Student Services,2,China & Asia (DKU Background Info; China & Asia stuides),China & Asia,1,2,0.5,0.0085
+International Student Services,7,Institutional & Transfer Credit,Transfer Credit,1,2,0.5,0.0091
+Principles of Selection,7,Institutional & Transfer Credit,Transfer Credit,2,2,1.0,0.0182
+Seven Principles of Duke Kunshan University Academic Advising,5,Interdisciplinary Seminars & Learning Goals,Seminars,2,2,1.0,0.0146
+Student Affairs,5,Interdisciplinary Seminars & Learning Goals,Seminars,2,2,1.0,0.0146
+Student Affairs Conceptual Framework,6,"History, Religion & Society",History & Religion,1,2,0.5,0.0055
+Student Affairs Conceptual Framework,7,Institutional & Transfer Credit,Transfer Credit,1,2,0.5,0.0091
+Student Conduct,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,2,0.5,0.0073
+Student Conduct,7,Institutional & Transfer Credit,Transfer Credit,1,2,0.5,0.0091
+Student Research Opportunities,7,Institutional & Transfer Credit,Transfer Credit,2,2,1.0,0.0182
+Tuition and Fees,1,"Advanced Placement, Credit & Electives",AP & Electives,2,2,1.0,0.0187
+A 21st Century Curriculum,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+A Liberal Arts College Experience,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Arts and Culture,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Campus Engagement,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,1,1.0,0.0073
+Campus Health Clinic,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,1,1.0,0.0073
+Class Scheduling,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,1,1.0,0.0105
+Compliance with Academic Regulations,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,1,1.0,0.0105
+Counseling and Psychological Services (CAPS),7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Course Audit,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,1,1.0,0.0105
+Dual Degrees,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Duke Kunshan University Community Standard,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Graduation and Commencement,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,1,1.0,0.0105
+Host Family Program,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+How to Apply,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Incomplete Coursework and Excused Absence from Final Exam,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,1,1.0,0.0105
+Leadership Development,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,1,1.0,0.0073
+Mission Statement,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Notification and Responses,1,"Advanced Placement, Credit & Electives",AP & Electives,1,1,1.0,0.0093
+Notification of Intention to Graduate,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Religious Holidays,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Residence Life,5,Interdisciplinary Seminars & Learning Goals,Seminars,1,1,1.0,0.0073
+Statement on Diversity and Inclusion,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Student Clubs and Organizations,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Submission of Term Paper,1,"Advanced Placement, Credit & Electives",AP & Electives,1,1,1.0,0.0093
+The Provision of Academic Information to Parents and Guardians,9,"Academic Standing, Leave & Withdrawal",Standing & Leave,1,1,1.0,0.0105
+Time Limit for Completing Undergraduate Degree,7,Institutional & Transfer Credit,Transfer Credit,1,1,1.0,0.0091
+Two-Credit Writing Courses,1,"Advanced Placement, Credit & Electives",AP & Electives,1,1,1.0,0.0093
