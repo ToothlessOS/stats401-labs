@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualization Critique and Redesign — STATS 401</title>
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <div id="nav"></div>
+
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
+
+    <h2>Visualization Critique and Redesign</h2>
+
+    <h3>1. Navigraph's FlySim Survey</h3>
+
+    <p>
+        I took this visualization from Navigraph's 2025 - 2026 survey on flight simulator users.
+        Specifically, this visualization look into how users switch between different simulators
+        during the year with a Sankey diagram. It help to understand the landscape of the flight
+        simulator market and how it changed over the year.
+    </p>
+
+    <p>
+        Source:
+    </p>
+
+    <ol>
+        <li><a href="https://navigraph.com/blog/survey-2026">Survey blog</a></li>
+        <li><a href="https://static.navigraph.com/survey/FlightSim_Community_Survey%202026.pdf">Full survey PDF</a></li>
+        <li><a href="https://static.navigraph.com/website/assets/files/FlightSim-Community-Survey-2026-Data.zip">Dataset</a></li>
+    </ol>
+
+    <!-- Relative src, not /stats401-labs/...: Vite rewrites references it can
+         resolve against the source tree and prepends `base` itself, so an
+         already-prefixed absolute path gets the base twice and 404s under the
+         dev server. Same trap lab8/index.html documents for elbow.png. -->
+    <div id="original-figure">
+        <img src="./ref.png" width="614" height="945"
+             alt="The survey's Sankey diagram, titled &quot;Simulator switching —
+                  of the users that switched, where did they go?&quot;. Six
+                  simulator nodes run down each side, labelled From and To, and
+                  the flows between them are drawn as smooth ribbons. Every
+                  ribbon and node is a shade of blue or grey, there is no legend,
+                  no scale and no value anywhere on the figure.">
+        <img src="./ref2.webp" width="1280" height="720"
+             alt="A second figure from the same report, titled &quot;MSFS 2020
+                  Migration 2025–2026&quot;, restricted to MSFS 2020 as the only
+                  source. It is set on a darkened photograph of an airliner
+                  cockpit, with the Sankey confined to the right of the frame and
+                  a small rotated legend down its right edge.">
+    </div>
+
+    <h3>2. Analyze the Original Visualization</h3>
+
+    <p>
+        <strong>Intended message:</strong>
+        The original visualization communicates how users switch between flight simulators.
+        The plot from the full report (left) shows the full status of all the users who have
+        switched simulators, while the plot from the blog (right) only highlighted the users
+        who migrated from MSFS2020. The trend is that most of these users moved to MSFS2024,
+        and only a fraction of them moved X-Plane 12 and other simulators. Context: MSFS2024 is
+        the latest flight simulator by Microsoft, however its quality wasn't good at initial release
+        and lacked third-party plugins. The fact that many MSFS2020 users are migrating to the latest
+        version suggests that the MSFS2024 has become more stable and the plugin ecosystem has improved
+        greatly. This is important message for <strong>flight simulator users</strong> who also consider
+        updating to MSFS2024.
+    </p>
+
+    <p>
+        <strong>Audience:</strong>
+        Flight simulator users; Marketing teams in the field.
+    </p>
+
+    <p>
+        <strong>Tasks:</strong>
+        <strong>Compare</strong> how the market shares of different simulator changed over time;
+        <strong>Identify the migration trend</strong> for users of different simulators.
+    </p>
+
+    <h3>3. Critique the Visualization</h3>
+    
+    <h4>Strengths (Blog version, right)</h4>
+
+    <ol>
+        <li>
+            Sankey diagrams is a good choice for the task of identifying migration trends, which clearly
+            shows the propotion of users migrating to each individual simulator.
+        </li>
+        <li>
+            The design choice to highlight migration from MSFS2020 answers the question of many MSFS2020
+            users on whether they should upgrade to MSFS2024. Also, the highlight avoids cluttering and keeps
+            the diagram clean and readable.
+        </li>
+    </ol>
+
+    <h4>Weaknesses</h4>
+
+    <p>
+        The weakenesses are with the expressiveness - it fails to fully represent data and answer
+        users' potential questions.
+    </p>
+
+    <ol>
+        <li>
+            <strong>Expressiveness #1</strong> - This static visualization cannot capture the full migration landscape.
+            If we try to pack all migration paths into the Sankey diagram, we run into hairballs (left). This prevents
+            the user to explore the complete trend. This can be easily fixed with interactive visualization with D3.
+        </li>
+        <li>
+            <strong>Expressiveness #2</strong> - This visualization fails to capture the users who stick to their current
+            simulator over the year, losing important information on <strong>customer loyalty</strong>. It also fails to account for the
+            changes of market shares of different simulator. Both are important for understanding the market of flight simulators.
+            This can be fixed by <strong>adding a new view</strong> that shows the status for all users.
+        </li>
+        <li>
+            <strong>Expressiveness #3</strong> - Advanced users to inspect the exact propotion of the users who
+            switched and stayed on a simulator - not provided in current visualization. The fix is to add a second table
+            to show detailed data based on user query.
+        </li>
+    </ol>
+
+    <h3>4. Redesign</h3>
+
+    <!-- Mounts are declared in markup, not built in JS, to match every other
+         page in this repo (lab8 declares 14 ids). It is also what makes the
+         id-scoped CSS rule in main.css mean something. -->
+    <div id="redesign-figure">
+        <!-- The interactions are not self-evident — a bar and a chip look
+             equally clickable but mean different things — so the guide goes
+             above the controls, not after the chart. -->
+        <div id="critique-guide">
+            <p class="guide-lead">How to read this</p>
+            <ul>
+                <li>
+                    Each simulator has two bars: on the left, where its users came
+                    from; on the right, where they are now. Bar height is that
+                    simulator's share of the respondents, so a bar that shrinks
+                    from left to right lost share. The ribbons between are people
+                    who moved.
+                </li>
+                <li>
+                    <strong>Hover to preview, click to pin, <kbd>Esc</kbd> to
+                    clear.</strong>
+                </li>
+                <li>
+                    <strong>A legend chip</strong> traces one simulator on both
+                    sides. <strong>A bar</strong> traces one side only — the left
+                    bar shows where its users went, the right bar shows where its
+                    users came from.
+                </li>
+            </ul>
+        </div>
+
+        <div id="critique-controls"></div>
+        <div id="critique-legend"></div>
+        <div id="critique-chart"></div>
+        <p class="critique-base" id="critique-base"></p>
+    </div>
+
+    <!-- aria-live so that pinning a simulator announces its numbers, which is
+         what makes the table a real alternative to reading the chart. -->
+    <div id="critique-details" aria-live="polite"></div>
+
+    <p class="caption">
+        [Placeholder] Caption for the redesign: what changed, and which point
+        from section 2 each change answers.
+    </p>
+
+    <h3>5. Design Justification</h3>
+
+    <ol>
+        <li>
+            Added interactive highlight & pin features to fix <strong>Expressiveness #1</strong>. This
+            allows better inspection of "where are the users coming from" and "where are the users going to".
+            The users are able to clearly see and extract the information they wanted.
+        </li>
+        <li>
+            Added the "all respondents" view to fix <strong>Expressiveness #2</strong>, allowing users to check
+            and compare the loyalty of different simulators as well as the changes in market shares. We can see that
+            MSFS2024 is gaining momentum, but a considerable number (~30%) of users still stick with MSFS2020.
+            - Important insight for Microsoft's marketing team. 
+        </li>
+        <li>
+            Added detailed table to fix <strong>Expressiveness #3</strong>. Importantly, the table is coordinated with
+            highlight & pin - when nothing is selected, it displays overview stats. When the use pin a specific simulator itself
+            / links to it / links from it, the table displays specific migration stats. This level of detail design make sure
+            the user can always extract target data directly.
+        </li>
+    </ol>
+
+    <p>
+        Overall, this improved design keeps the readability of the original MSFS2020 migration diagram while significantly
+        improves expressiveness to support better analysis of the flight simulator market. Moreover, the level of detail designs through
+        the highlight & pin + dynamnic table implementation allow user to easily switch between overviews and details.
+        However, this visualzation has higher information density and could take the users longer to process.
+    </p>
+
+    <p><a href="/stats401-labs/">Back to home</a></p>
+
+    <script type="module" src="/src/critique.js"></script>
+</body>
+</html>

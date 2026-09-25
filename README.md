@@ -20,6 +20,7 @@ stats401-labs/
 │       └── students.json
 ├── src/                           # All authored JS / CSS; bundled by Vite
 │   ├── main.js                    # Homepage entry
+│   ├── critique.js                # Critique & Redesign page entry
 │   ├── labs/
 │   │   ├── nav.js                 # Shared navigation bar helper
 │   │   ├── lab1.js                # Lab 1 ES-module entry (D3 demo)
@@ -28,6 +29,7 @@ stats401-labs/
 │       └── main.css               # Global styles + .lab-nav rules
 ├── index.html                     # Homepage Vite entry
 ├── lab1/index.html … lab10/index.html   # Per-lab Vite entries
+├── critique/index.html            # Critique & Redesign Vite entry
 ├── package.json
 ├── vite.config.js                 # Multi-page config, base: '/stats401-labs/'
 └── README.md
@@ -48,12 +50,17 @@ stats401-labs/
   `d3.csv('/stats401-labs/data/students.csv')` needs.
 - **Shared nav.** Every page has `<div id="nav"></div>` and its entry
   JS calls `mountNav('#nav')` from `src/labs/nav.js`. Editing the nav
-  in one place updates all 11 pages.
+  in one place updates all 12 pages.
+- **`d3-sankey` is a second dependency**, used only by the critique
+  page. The umbrella `d3` package does not export `sankey`, so it has
+  to be imported from its own specifier: `import { sankey,
+  sankeyLinkHorizontal } from 'd3-sankey'`. It is bundled into the
+  critique chunk alone, so no other lab loads it.
 
 ## Dev commands
 
 ```bash
-npm install        # one-time: installs vite + d3 (creates package-lock.json)
+npm install        # one-time: installs vite + d3 + d3-sankey (creates/updates package-lock.json)
 npm run dev        # Vite dev server at http://localhost:5173/stats401-labs/
 npm run build      # production build → dist/
 npm run preview    # serve the built dist/ at http://localhost:4173/stats401-labs/
@@ -82,6 +89,9 @@ deployed GitHub Pages URL exactly.
    (the list of `labN: resolve(__dirname, 'labN/index.html')` entries).
 4. The nav automatically picks up labs 1–10 from `src/labs/nav.js`
    (it generates them programmatically), so no nav edit is needed.
+   Pages that are *not* labs (`critique/index.html`) need an explicit
+   entry in the `pages` array in `src/labs/nav.js`, which is also
+   where pill order is set.
 
 ## Deploying
 

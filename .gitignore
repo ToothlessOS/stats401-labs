@@ -5,3 +5,8 @@ dist/
 *.log
 
 lab4/training.1600000.processed.noemoticon.csv
+
+__pycache__
+
+critique/FlightSim-Community-Survey-2026-Data
+critique/FlightSim_Community_Survey 2026.pdf

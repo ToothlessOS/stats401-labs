@@ -427,3 +427,261 @@ li {
     margin-bottom: 3px;
     break-inside: avoid;
 }
+
+/* ---- Critique & Redesign --------------------------------------------------
+ * Rules are scoped to ids declared only by critique/index.html, so they cannot
+ * reach another lab's page.
+ *
+ * Two constraints worth keeping:
+ *   - #data-table is shared (lab3 and lab8 both declare one), so only rules
+ *     scoped under #critique-details are added here; the table itself inherits
+ *     the global border-collapse / #f5f5f5 header styling untouched.
+ *   - Nothing here may set `position` on an ancestor of #critique-tooltip.
+ *     .tooltip places itself from pageX/pageY against the initial containing
+ *     block, so a positioned ancestor would re-base it and misplace it. */
+
+#original-figure {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 20px 0 10px;
+    overflow-x: auto;
+}
+
+#original-figure img {
+    display: block;
+    height: 360px;
+    width: auto;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+/* Sits above the controls: a bar and a chip look equally clickable but do
+ * different things, so the reader needs this before touching either. */
+#critique-guide {
+    max-width: 780px;
+    margin: 18px 0 20px;
+    padding: 14px 18px;
+    border-left: 3px solid #2a78d6;
+    border-radius: 0 4px 4px 0;
+    background: #fafafa;
+}
+
+#critique-guide .guide-lead {
+    margin: 0 0 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #52514e;
+}
+
+#critique-guide ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+#critique-guide li {
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
+}
+
+#critique-guide li:last-child {
+    margin-bottom: 0;
+}
+
+#critique-guide kbd {
+    padding: 1px 5px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    background: white;
+    font-family: inherit;
+    font-size: 12px;
+}
+
+#critique-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 4px;
+}
+
+#critique-controls button.mode {
+    font: inherit;
+    font-size: 13px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+}
+
+#critique-controls button.mode:hover {
+    border-color: #888;
+}
+
+#critique-controls button.mode[aria-pressed="true"] {
+    background: #2a78d6;
+    border-color: #2a78d6;
+    color: white;
+}
+
+#critique-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0 6px;
+}
+
+#critique-legend .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font: inherit;
+    font-size: 13px;
+    padding: 5px 11px;
+    border: 1px solid #ddd;
+    border-radius: 999px;
+    background: white;
+    color: #333;
+    cursor: pointer;
+}
+
+#critique-legend .chip:hover {
+    border-color: #888;
+}
+
+#critique-legend .chip[aria-pressed="true"] {
+    border-color: #0b0b0b;
+    box-shadow: inset 0 0 0 1px #0b0b0b;
+}
+
+#critique-legend .chip-i {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+#critique-legend .chip-n {
+    color: #898781;
+    font-variant-numeric: tabular-nums;
+}
+
+#critique-chart {
+    margin-top: 6px;
+    overflow-x: auto;
+}
+
+#critique-chart svg {
+    display: block;
+    flex-shrink: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+#critique-chart text.lab-line {
+    font-size: 12px;
+    font-family: inherit;
+}
+
+#critique-base {
+    margin: 10px 0 0;
+    max-width: 780px;
+    font-size: 13px;
+    color: #52514e;
+    line-height: 1.55;
+}
+
+#critique-details {
+    margin-top: 26px;
+}
+
+#critique-details h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+/* Marks a focus that came from one bar rather than from a legend chip, so a
+ * half-length table is never ambiguous. */
+#critique-details .side-tag {
+    margin-left: 5px;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: #f1f1f1;
+    font-size: 11px;
+    font-weight: 400;
+    color: #52514e;
+    vertical-align: middle;
+}
+
+#critique-details .detail-meta,
+#critique-details .detail-hint {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: #52514e;
+    line-height: 1.6;
+}
+
+#critique-details .detail-hint {
+    margin: 10px 0 0;
+    color: #898781;
+}
+
+#critique-details caption {
+    caption-side: bottom;
+    text-align: left;
+    padding-top: 8px;
+    font-size: 13px;
+    color: #52514e;
+}
+
+#critique-details .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+#critique-details .idx {
+    width: 2em;
+    color: #898781;
+    font-variant-numeric: tabular-nums;
+}
+
+#critique-details .swatch {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 6px;
+    border-radius: 2px;
+}
+
+#critique-details .up {
+    color: #1c8f6e;
+}
+
+#critique-details .down {
+    color: #884117;
+}
+
+#critique-details tr.group th {
+    background: #fafafa;
+    font-size: 13px;
+}
+
+#critique-details tr.group .base {
+    margin-left: 6px;
+    font-weight: 400;
+    color: #898781;
+}
+
+#critique-details tfoot th,
+#critique-details tfoot td {
+    background: #f5f5f5;
+    border-top: 2px solid #999;
+    font-weight: 600;
+}
