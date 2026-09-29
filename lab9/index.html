@@ -9,8 +9,95 @@
 <body>
     <div id="nav"></div>
 
-    <h1>Lab 9</h1>
-    <p>Lab 9 content will appear here.</p>
+    <h1>STATS 401: Data Acquisition and Visualization</h1>
+
+    <h2>Lab 9: Geospatial Visualization</h2>
+
+    <h3>1. Dataset Description</h3>
+
+    <!-- TODO (write this yourself — it is part of the graded submission).
+         Cover, per the assignment brief:
+           - what lab9_gdp_2025_top50.csv contains: the 50 largest economies by
+             2025 nominal GDP, with iso3, country, gdp_2025_billion_usd and rank;
+           - the source: IMF World Economic Outlook, October 2025, nominal-GDP
+             series, current prices, billions of USD. Note the IMF's own caveat
+             that WEO observations can include staff estimates where complete
+             official data are unavailable, and are subject to revision;
+           - the geographic file: 258 country features, each carrying a name and
+             ISO 3166-1 alpha-2/alpha-3 codes, of which 22 have no ISO code
+             (Natural Earth stores "-99" for those, which is why France and
+             Norway need a name-based fallback in the join);
+           - that countries outside the top 50 are treated as *no data*, not as
+             zero GDP, and how the maps show that.
+    -->
+
+    <h3>2. 2025 GDP Choropleth</h3>
+
+    <div id="legend"></div>
+
+    <p class="caption">
+        The colors / bins are in log scale to better capture
+        the skewed GDP data and hihglight the differences.
+        Grey means the country is not in the provided top-50 dataset — missing
+        data, not a GDP of zero.
+    </p>
+
+    <p class="caption">
+        Hover for values, click to pin a country, and
+        scroll or drag to zoom. 
+    </p>
+
+    <div id="controls"></div>
+    <div id="choropleth"></div>
+
+    <h3>3. 2025 GDP Cartogram</h3>
+
+    <p class="caption">
+        Here, the GDP is encoded by Area instead - see the scale on bottom-left corner.
+        The background continents and coordinated interactions with the Choropleth are
+        added so that users can have a clearer mental picture.
+    </p>
+
+    <div id="cartogram"></div>
+
+    <h3>4. Design and Comparison</h3>
+
+    <ol>
+      <li>
+        Which countries are most visually prominent in each map? - In the Choropleth,
+        countries with the largest areas are the most prominant visually (for example, Russia);
+        The area encodes the GDP instead in the Cartogram, so the countries with the highest
+        GDPs are the most prominant visually (for example, China and USA).
+      </li>
+      <li>
+        Which countries become much larger or smaller in the cartogram? - Russia and Brazil have become much
+        smaller, while South Korea and Japan have become much larger, indicating a mismatch between
+        geographical area and GDP.
+      </li>
+      <li>
+        What geographic information does the choropleth preserve? - Relative position and common borders of countries.
+      </li>
+      <li>
+        What geographic information does the cartogram distort? - Areas and shapes of countries.
+      </li>
+      <li>
+        What types of questions or tasks can the choropleth best support? - Questions that are related to geographical information,
+        for example, "What part of Asia is most developed / underdeveloped in terms of GDP?". These questions will be harder solely
+        based on the distorted cartogram - that's also why I build the coorindated interaction between the two maps and tooltips here.
+      </li>
+      <li>
+        What types of questions or tasks can the cartogram best support? - Comparing the GDPs of different contries, as
+        the differences in sizes makes the skewed GDP distribution prominant. Also, the differences in size is easier to
+        identify compare to differences in colors for such a skewed distribution.
+      </li>
+      <li>
+        How does changing from color encoding to area encoding change your perception of global economic size? - This change
+        highlights the unequal development of different countries - emphasized by the very different areas. The distorted shapes
+        also make me curious and encourage me to look into the data.
+      </li>
+    </ol>
+
+    <div id="tooltip" class="tooltip"></div>
 
     <p><a href="/stats401-labs/">Back to home</a></p>
 

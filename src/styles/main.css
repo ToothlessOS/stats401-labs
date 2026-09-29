@@ -685,3 +685,73 @@ li {
     border-top: 2px solid #999;
     font-weight: 600;
 }
+
+/* ---- Lab 9 ----------------------------------------------------------------
+ * #choropleth and #cartogram are declared only by lab9/index.html, so none of
+ * this can reach another lab's page.
+ *
+ * Unlike #chart, these maps do NOT put the legend alongside.  The body is
+ * 1000px wide and a map is 920 of them, so a side legend runs off the right
+ * edge and its labels get cut off mid-word.  Lab 9's legend sits under the map
+ * instead; see createLegend in src/labs/lab9.js.
+ */
+
+#choropleth,
+#cartogram {
+    margin-top: 12px;
+    overflow-x: auto;
+}
+
+#choropleth > svg,
+#cartogram > svg,
+#legend svg {
+    display: block;
+}
+
+/* The in-figure statement of what the colour or the area means. */
+.map-encoding {
+    font-size: 12px;
+    fill: #52514e;
+}
+
+/* Country outlines are drawn with white strokes; rounding the joins stops
+ * hairline gaps opening at the corners of small countries. */
+#choropleth .country,
+#cartogram .cartogram-country {
+    stroke-linejoin: round;
+}
+
+/* The undistorted backdrop: scenery, so it must never intercept the pointer
+ * before the shape that is actually under it. */
+#cartogram .cartogram-context {
+    pointer-events: none;
+}
+
+.choropleth-legend text {
+    font-size: 12px;
+    fill: #0b0b0b;
+}
+
+.choropleth-legend .legend-title {
+    font-size: 13px;
+}
+
+/* Lifts the no-data entry off the ramp it would otherwise read as part of. */
+.choropleth-legend .legend-nodata {
+    stroke: #ffffff;
+    stroke-dasharray: 2 2;
+}
+
+/* The cartogram's area ruler.  These MUST declare a font-size: without it the
+ * labels fall back to the SVG default of 16px, while the row is spaced from
+ * REF_CHAR_W in lab9.js on the assumption of 11px - so every label comes out
+ * about 40% wider than the gap reserved for it and they overlap. */
+.area-reference-title,
+.area-reference-label {
+    font-size: 11px;
+    fill: #0b0b0b;
+}
+
+.area-reference-title {
+    font-weight: bold;
+}

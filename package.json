@@ -10,10 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "cartogram-chart": "^1.4.4",
     "d3": "^7.9.0",
-    "d3-sankey": "^0.12.3"
+    "d3-sankey": "^0.12.3",
+    "topogram": "^1.0.1",
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3",
     "vite": "^5.4.0"
   }
 }
