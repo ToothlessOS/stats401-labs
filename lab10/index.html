@@ -6,13 +6,166 @@
     <title>Lab 10 — STATS 401</title>
     <link rel="stylesheet" href="/src/styles/main.css">
 </head>
-<body>
+<body class="lab10-page">
     <div id="nav"></div>
 
-    <h1>Lab 10</h1>
-    <p>Lab 10 content will appear here.</p>
+    <h2 class="lab10-title">Lab 10: Novel Interaction with Visualizations</h2>
 
-    <p><a href="/stats401-labs/">Back to home</a></p>
+    <!-- Three columns: hints, the maps, and the interaction panels.  The maps
+         sit in the middle because they are the thing being operated; the two
+         side columns are reference and feedback, and neither is worth the
+         reader's attention until something has happened on the map. -->
+    <div id="lab10-layout">
+
+        <!-- ---- left: what you can do --------------------------------- -->
+        <aside id="lab10-hints">
+            <h3>Voice</h3>
+
+            <ul class="hint-list">
+                <li><code>show top ten</code><span>keep the 10 largest</span></li>
+                <li><code>select Japan</code><span>pin a country</span></li>
+                <li><code>next tier</code><span>step GDP classes</span></li>
+                <li><code>clear filter</code><span>drop the filter</span></li>
+                <li><code>reset</code><span>clear everything</span></li>
+            </ul>
+
+            <h3>Gestures</h3>
+
+            <ul class="hint-list">
+                <li><b>Open palm</b><span>start recording</span></li>
+                <li><b>Closed fist</b><span>stop, and run it</span></li>
+                <li><b>Thumb up</b><span>next GDP class</span></li>
+                <li><b>Thumb down</b><span>previous class</span></li>
+            </ul>
+
+            <p class="hint-note">
+                <b>How recording works.</b> The microphone is live only between an
+                open palm and a closed fist. Say one command inside that window and
+                it runs the moment you close your fist — nothing is sent while the
+                window is open, so you can see the phrase forming and repeat
+                yourself if it mishears. The microphone is never listening outside
+                the window.
+            </p>
+
+            <h3>Mouse</h3>
+
+            <ul class="hint-list">
+                <li><b>Hover</b><span>read a country</span></li>
+                <li><b>Click</b><span>pin a country</span></li>
+                <li><b>Scroll</b><span>zoom the map</span></li>
+                <li><kbd>Esc</kbd><span>reset</span></li>
+            </ul>
+
+            <p class="hint-note">
+                You can pause mid-sentence; the window stays open until you close
+                your fist. Hold a gesture for a moment — it fires once, and your
+                hand must return to neutral before it fires again.
+            </p>
+
+            <p class="hint-note">
+                The microphone and camera start only when you click. Video is read
+                inside this tab and never uploaded.
+            </p>
+        </aside>
+
+        <!-- ---- middle: the visualization ----------------------------- -->
+        <main id="lab10-maps">
+            <div id="legend"></div>
+
+            <div id="controls"></div>
+
+            <div id="choropleth"></div>
+
+            <div id="cartogram"></div>
+        </main>
+
+        <!-- ---- right: recognition, then what it selected -------------- -->
+        <aside id="lab10-panels">
+
+            <section id="lab10-voice">
+                <h3>Voice</h3>
+
+                <button id="voice-button" type="button" aria-pressed="false">
+                    Start voice control
+                </button>
+
+                <p id="voice-status" class="status is-idle" role="status" aria-live="polite">
+                    Voice control inactive.
+                </p>
+            </section>
+
+            <section id="lab10-gesture">
+                <h3>Gesture</h3>
+
+                <div id="lab10-camera-wrap">
+                    <video id="camera" autoplay playsinline muted></video>
+                    <canvas id="lab10-landmarks"></canvas>
+                </div>
+
+                <button id="camera-button" type="button">Start camera</button>
+
+                <p id="gesture-badge" class="gesture-badge is-idle">Camera off</p>
+
+                <p id="camera-status" class="status is-idle" role="status" aria-live="polite">
+                    Camera off.
+                </p>
+            </section>
+
+            <!-- What the two panels above have actually selected.  The map can
+                 only show a country by shape and shade; this says what it is. -->
+            <section id="lab10-details">
+                <h3>Country details</h3>
+
+                <div id="lab10-details-body"></div>
+            </section>
+
+            <section id="lab10-log-panel">
+                <h3>Action log</h3>
+
+                <ul id="lab10-log" role="log" aria-live="polite">
+                    <li class="log-empty">Nothing yet — start the microphone or the camera.</li>
+                </ul>
+            </section>
+
+        </aside>
+
+    </div>
+
+    <!-- ---- below the visualization: the write-up ---------------------- -->
+    <section id="lab10-writeup">
+        <h2>Design Reflection</h2>
+
+        <p>
+            I extended the Lab 9 visualization on world GDP with choropleth and
+            cartogram.
+        </p>
+
+        <p>
+            I implemented two novel interaction features — <strong>gestures</strong>
+            and <strong>voice</strong>. This is to facilitate user tasks of navigating
+            the visualization on bigger screens and collaborative exploration —
+            gestures and voice allow the users to interact from a distance, and voice
+            also helps to keep everyone on the same page in the collaborative setting.
+            These novel interaction features support all conventional interactions
+            (selecting one, selecting top-k, filtering) except zooming — which is less
+            necessary on large screens and cannot be controlled precisely. The tooltip
+            is adopted so it presents more information — tailored for the user tasks.
+        </p>
+
+        <p>
+            One important design is that the voice controls can be easily turned on and
+            off via gestures — so that you won't have the discussions wrongly picked up
+            as commands.
+        </p>
+
+        <p>
+            The gesture control is quite good, but the voice control is less accurate —
+            it is easily affected by accent. This is the main limitation of the current
+            visualization.
+        </p>
+    </section>
+
+    <div id="tooltip" class="tooltip"></div>
 
     <script type="module" src="/src/labs/lab10.js"></script>
 </body>

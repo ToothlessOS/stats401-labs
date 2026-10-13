@@ -77,8 +77,11 @@ li {
     line-height: 1.45;
 }
 
-/* Lab 7 playback controls. #controls is declared only by lab7/index.html, so
- * these rules cannot reach any other lab's page. */
+/* Playback controls, shared by every page that declares #controls - lab7,
+ * lab9 and lab10.  Deliberately not scoped to one lab: the point of these
+ * rules is that a button looks like a button on all three, so a reader moving
+ * between the labs does not have to relearn the controls.  Page-specific
+ * additions go in that page's own section further down. */
 #controls {
     margin: 6px 0 0;
     /* Matches the legend and network SVG width (lab7.js WIDTH / LEGEND_W), so
@@ -754,4 +757,429 @@ li {
 
 .area-reference-title {
     font-weight: bold;
+}
+
+/* ---- Lab 10 ----------------------------------------------------------------
+ * The novel-interaction page.  Everything new is scoped to an id that only
+ * lab10/index.html declares, for the same reason Lab 9's block is: a lab's
+ * rules must not be able to reach another lab's page.
+ *
+ * The maps themselves reuse Lab 9's ids (#choropleth, #cartogram, #legend), so
+ * they inherit that block above unchanged.  Only the interaction furniture is
+ * new here.
+ */
+
+/* The one marker that ties a tier filter back to the colour ramp.  Without it
+ * the active class is only visible as a pattern of dimming, and a dimmed
+ * country is easy to confuse with a grey no-data one.  A CSS declaration beats
+ * the `stroke` presentation attribute the legend sets in JS, which is what
+ * makes this work without a second write path. */
+.choropleth-legend g.legend-active rect {
+    stroke: #0b0b0b;
+    stroke-width: 1.6;
+}
+
+.choropleth-legend g.legend-active text {
+    font-weight: bold;
+}
+
+/* Three columns: hints, the maps, the interaction panels.
+ *
+ * The maps are 920px of fixed SVG and cannot shrink without redrawing at a new
+ * scale, so this page is wider than the rest of the site.  Overriding body's
+ * max-width here rather than globally keeps every other lab at 1000px. */
+body.lab10-page {
+    max-width: 1560px;
+}
+
+.lab10-title {
+    margin-top: 0;
+}
+
+#lab10-layout {
+    display: grid;
+    /* The middle track is fixed so the two maps stay exactly the width their
+     * projection was fitted to; only the side columns flex. */
+    grid-template-columns: 210px 920px 330px;
+    gap: 24px;
+    align-items: start;
+    margin-top: 12px;
+}
+
+#lab10-maps {
+    min-width: 0;
+}
+
+#lab10-panels > section {
+    margin-bottom: 22px;
+}
+
+#lab10-panels h3,
+#lab10-hints h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #52514e;
+}
+
+#lab10-hints h3:not(:first-child) {
+    margin-top: 20px;
+}
+
+/* --- left column: the hints ---------------------------------------------- */
+
+.hint-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.hint-list li {
+    margin-bottom: 7px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* inline-block, not block: a full-width chip reads as a text input rather than
+ * as the name of a command.  The description underneath is the block, so each
+ * hint is still two lines. */
+.hint-list code,
+.hint-list b,
+.hint-list kbd {
+    display: inline-block;
+    font-size: 12px;
+    color: #0b0b0b;
+}
+
+.hint-list code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: #f1f1f1;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.hint-list span {
+    display: block;
+    color: #898781;
+}
+
+.hint-list kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.hint-note {
+    margin: 16px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid #e8e7e1;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #898781;
+}
+
+/* --- right column: recognition, then what it selected -------------------- */
+
+#lab10-panels button {
+    padding: 7px 14px;
+    font-size: 13px;
+    background: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#lab10-panels button:hover:not(:disabled) {
+    background: #333;
+    color: white;
+    border-color: #333;
+}
+
+#lab10-panels button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+#lab10-details-body {
+    font-size: 13px;
+}
+
+.details-empty {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #898781;
+}
+
+.details-card {
+    padding: 9px 11px;
+    background: #f7f7f5;
+    border-left: 3px solid #2a78d6;
+}
+
+.details-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+/* A two-column definition list: the terms are all short, and stacking them
+ * would double the height of the panel for no gain. */
+.details-facts {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3px 10px;
+    margin: 0;
+}
+
+.details-facts dt {
+    color: #898781;
+    font-size: 12px;
+}
+
+.details-facts dd {
+    margin: 0;
+    font-size: 12px;
+    text-align: right;
+}
+
+.details-heading {
+    margin: 14px 0 6px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #52514e;
+}
+
+/* Capped, because "show top 50" is a legitimate command and an uncapped list
+ * would push the action log off the bottom of the column. */
+.details-list {
+    max-height: 280px;
+    overflow-y: auto;
+    border-top: 1px solid #e8e7e1;
+}
+
+.details-row {
+    display: grid;
+    grid-template-columns: 26px 1fr auto;
+    gap: 8px;
+    align-items: baseline;
+    padding: 4px 2px;
+    border-bottom: 1px solid #f1f1f1;
+    font-size: 12px;
+}
+
+.details-rank {
+    color: #898781;
+    text-align: right;
+}
+
+.details-country {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.details-gdp {
+    color: #52514e;
+    font-variant-numeric: tabular-nums;
+}
+
+/* --- below the visualization: the write-up -------------------------------- */
+
+/* Capped well below the page width on purpose.  This page is 1560px so the
+ * three-column layout fits, but prose set to that measure is unreadable - the
+ * eye loses the line on the return sweep.  720px is roughly 90 characters at
+ * this size. */
+#lab10-writeup {
+    max-width: 720px;
+    margin-top: 44px;
+    padding-top: 24px;
+    border-top: 1px solid #e8e7e1;
+}
+
+#lab10-writeup h2 {
+    margin-top: 0;
+}
+
+#lab10-writeup p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* The recognition feedback line.  Each state gets its own colour because the
+ * difference between "listening", "understood" and "failed" is the single most
+ * important thing on the page to be able to read at a glance. */
+.status {
+    margin: 10px 0 0;
+    padding: 7px 11px;
+    font-size: 13px;
+    line-height: 1.45;
+    border-left: 3px solid #ccc;
+    background: #f7f7f5;
+    color: #333;
+}
+
+.status.is-idle {
+    border-left-color: #c3c2b7;
+    color: #52514e;
+}
+
+.status.is-loading,
+.status.is-listening {
+    border-left-color: #2a78d6;
+    background: #f0f6fd;
+}
+
+.status.is-ok {
+    border-left-color: #1a7f37;
+    background: #f1f8f2;
+}
+
+.status.is-warn {
+    border-left-color: #b54708;
+    background: #fdf6ef;
+}
+
+/* The live gesture readout.  Monospace so a score ticking from 0.94 to 0.87
+ * does not reflow the line it sits on. */
+.gesture-badge {
+    display: inline-block;
+    margin: 10px 0 0;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    border-radius: 4px;
+    background: #f1f1f1;
+    color: #52514e;
+}
+
+.gesture-badge.is-detected {
+    background: #2a78d6;
+    color: white;
+}
+
+.gesture-badge.is-warn {
+    background: #fdf6ef;
+    color: #b54708;
+    border: 1px solid #f0c9a8;
+}
+
+/* The camera preview and its landmark overlay.
+ *
+ * Mirroring lives on the wrapper rather than on the video, so the canvas is
+ * flipped by the same transform: mirroring the video alone would leave the
+ * skeleton drawn on top of it in unmirrored coordinates, sliding the wrong way
+ * as the hand moves. */
+#lab10-camera-wrap {
+    position: relative;
+    /* Fills whatever column it is put in rather than a fixed width, so moving
+     * the panel does not leave the preview overflowing it. */
+    width: 100%;
+    margin-bottom: 10px;
+    transform: scaleX(-1);
+    line-height: 0;
+}
+
+#camera {
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+    background: #111;
+}
+
+#lab10-landmarks {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- the feedback log ---------------------------------------------------- */
+
+#lab10-log {
+    list-style: none;
+    /* Capped for the same reason the details list is: the action log is the
+     * longest-lived thing on the page and would otherwise grow without bound
+     * down the column. */
+    max-height: 260px;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+
+#lab10-log li {
+    padding: 7px 11px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.5;
+    background: #f7f7f5;
+    border-left: 3px solid #ccc;
+}
+
+/* One colour per modality, so a glance down the log says which input the
+ * reader was using when something went wrong. */
+#lab10-log .log-voice {
+    border-left-color: #2a78d6;
+}
+
+#lab10-log .log-gesture {
+    border-left-color: #1a7f37;
+}
+
+#lab10-log .log-control {
+    border-left-color: #898781;
+}
+
+#lab10-log .log-empty {
+    border-left-color: #e8e7e1;
+    color: #898781;
+}
+
+/* Stacked above the text rather than beside it: the log now lives in a 330px
+ * column, where a 62px inline label leaves too little room for the transcript. */
+#lab10-log .log-source {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #898781;
+    margin-bottom: 2px;
+}
+
+#lab10-log .log-heard {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    color: #0b0b0b;
+}
+
+#lab10-log .log-arrow {
+    margin: 0 7px;
+    color: #898781;
+}
+
+#lab10-log .log-action {
+    color: #333;
+}
+
+/* --- documentation tables ------------------------------------------------ */
+
+/* --- lab10 additions to the shared #controls ----------------------------- */
+
+/* #controls styles only buttons, selects, ranges and text inputs; the top-k
+ * box is the first number input, and without this it renders at the browser
+ * default size next to consistently-sized neighbours. */
+#controls #lab10-topk {
+    width: 72px;
+    padding: 5px 8px;
+    font-size: 13px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#controls #lab10-country {
+    max-width: 260px;
 }

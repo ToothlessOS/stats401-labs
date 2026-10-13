@@ -7,9 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:lab9-topo": "node scripts/build-lab9-topo.mjs",
+    "vendor:mediapipe": "node scripts/vendor-mediapipe.mjs"
   },
   "dependencies": {
+    "@mediapipe/tasks-vision": "^1.1.0",
     "cartogram-chart": "^1.4.4",
     "d3": "^7.9.0",
     "d3-sankey": "^0.12.3",
